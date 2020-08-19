@@ -1,32 +1,38 @@
 import React, { Component } from "react";
 import "./App.css";
-import { fetchData } from "./api/api";
+
 import InputBox from './Components/InputBox'
 import 'tachyons';
-import RepoCard from "./Components/RepoCard";
-
+import RepoList from './Components/RepoList'
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      input: ''
+      input: '',
+      isClicked: false,
+      user_input: ''
     }
   }
   onInputChange = (event) => {
-    // console.log(event.target.value);
     this.setState({ input: event.target.value })
   }
   onButtonSubmit = () => {
-    // alert(this.state.input)
     console.log('Button Clicked')
-    fetchData(this.state.input)
+    // console.log(this.state.input)
+    this.setState({isClicked:true})
+    this.setState({user_input :this.state.input});
   }
   render() {
+    const isClicked = this.state.isClicked;
+    let button;
+    if(isClicked){
+      button = <RepoList input={this.state.user_input}/>;
+    }
     return (
       <div>
         <div>
           <InputBox onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-          <RepoCard/>
+          {button}
         </div>
       </div>
     );

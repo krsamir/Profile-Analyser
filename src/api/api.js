@@ -16,7 +16,7 @@ export const fetchData = async (username) => {
       }, base_url = "https://api.github.com");
       datalist = response.data;
       console.log("Status Code api 1 : ", response.status)
-      console.log(datalist);
+      return datalist;
     } catch (error) {
       console.log(error);
     }
