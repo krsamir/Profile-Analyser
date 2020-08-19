@@ -1,31 +1,33 @@
-import React,{ Component} from "react";
+import React, { Component } from "react";
 import "./App.css";
-import {fetchData} from "./api/api";
+import { fetchData } from "./api/api";
 import InputBox from './Components/InputBox'
 import 'tachyons';
+import RepoCard from "./Components/RepoCard";
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      input:''
+      input: ''
     }
   }
-  onInputChange = (event) =>{
+  onInputChange = (event) => {
     // console.log(event.target.value);
-    this.setState({input:event.target.value})
+    this.setState({ input: event.target.value })
   }
-onButtonSubmit = () =>{
-  // alert(this.state.input)
-  console.log('Button Clicked')
-  fetchData(this.state.input)
-}
-  render(){
-    return(
+  onButtonSubmit = () => {
+    // alert(this.state.input)
+    console.log('Button Clicked')
+    fetchData(this.state.input)
+  }
+  render() {
+    return (
       <div>
         <div>
-    <InputBox onInputChange = {this.onInputChange} onButtonSubmit= {this.onButtonSubmit}/>
-  </div>
+          <InputBox onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+          <RepoCard/>
+        </div>
       </div>
     );
   }
