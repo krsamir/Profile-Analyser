@@ -40,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function RecipeReviewCard({name}) {
+export default function RecipeReviewCard({api}) {
+    console.log(api)
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -62,7 +63,7 @@ export default function RecipeReviewCard({name}) {
                                 <MoreVertIcon />
                             </IconButton>
                         }
-                        title={name}
+                        title={api['name']}
                         // subheader="September 14, 2016"
                     />
                     {/* <CardMedia
@@ -71,7 +72,7 @@ export default function RecipeReviewCard({name}) {
                         title="Paella dish"
                     /> */}
                     <CardContent>
-                        <h3>{name}</h3>
+                        <h3>{api['name']}</h3>
                     </CardContent>
                     <CardActions disableSpacing>
                         <IconButton
@@ -87,4 +88,15 @@ export default function RecipeReviewCard({name}) {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                            <Typography paragraph>Description
+                            <Typography paragraph>Description</Typography>
+                            <Typography paragraph>
+            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
+            minutes.
+          </Typography>
+        </CardContent>
+      </Collapse>
+    </Card>
+    </Grid>
+    </Grid>
+  );
+}
