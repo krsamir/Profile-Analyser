@@ -20,7 +20,7 @@ export default class RepoList extends Component {
         
         const Repos = apiData.map((user,index) => {
             const api=apiData[index]
-            return <RepoCard key = {index} name={api}/>
+            return <RepoCard key = {index} api={api}/>
         })
         return (
             <Grid>

@@ -16,14 +16,15 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import styles from './RepoCard.module.css';
+import cx from 'classnames';
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 345,
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '20%', // 16:9
     },
     expand: {
         transform: 'rotate(0deg)',
@@ -35,12 +36,10 @@ const useStyles = makeStyles((theme) => ({
     expandOpen: {
         transform: 'rotate(180deg)',
     },
-    avatar: {
-        backgroundColor: red[500],
-    },
+    
 }));
 
-export default function RecipeReviewCard({api}) {
+export default function RecipeReviewCard({ api }) {
     console.log(api)
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
@@ -50,21 +49,17 @@ export default function RecipeReviewCard({api}) {
     };
     return (
         <Grid>
-            <Grid>
-                <Card className={classes.root}>
+            <Grid className={styles.CardStyle}>
+                <Card className={cx(classes.root,styles.InnerCardStyle)}>
                     <CardHeader
                         avatar={
                             <Avatar aria-label="recipe" className={classes.avatar}>
-                                R
-          </Avatar>
+                                {api['owner'].avatar_url}
+                        </Avatar>
                         }
-                        action={
-                            <IconButton aria-label="settings">
-                                <MoreVertIcon />
-                            </IconButton>
-                        }
-                        title={api['name']}
-                        // subheader="September 14, 2016"
+                    
+                    // title={api}      sad
+                    // subheader="September 14, 2016"
                     />
                     {/* <CardMedia
                         className={classes.media}
@@ -89,14 +84,15 @@ export default function RecipeReviewCard({api}) {
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
                             <Typography paragraph>Description</Typography>
-                            <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
-    </Grid>
-    </Grid>
-  );
+                            <Typography paragraph>Date and Time of creation : {api['created_at']}</Typography>
+                            <Typography paragraph>Number of forks for this Repositories : {api['forks']}</Typography>
+                            <Typography paragraph>This Repository holds github pages : {api['has_pages']}</Typography>
+                            <Typography paragraph>last update for this Repository : {api['pushed_at']}</Typography>
+                            <Typography paragraph>Number of watchers for this Repository : {api['watchers_count']}</Typography>
+                        </CardContent>
+                    </Collapse>
+                </Card>
+            </Grid>
+        </Grid>
+    );
 }
