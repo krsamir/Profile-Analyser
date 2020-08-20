@@ -10,11 +10,8 @@ export const fetchData = async (username) => {
         url: base_url,
         method: "get",
         auth: {
-          // username: process.env.REACT_APP_GithubUserName,
-          // password: process.env.REACT_APP_GithubPassword
-          username:'samirkr2527@gmail.com',
-          password: 'da96ecd46b6017b07410fe04ca17c6ead0c536e2'
-
+          username: process.env.REACT_APP_GithubUserName,
+          password: process.env.REACT_APP_GithubPassword
         },
       }, base_url = "https://api.github.com");
       datalist = response.data;
