@@ -3,6 +3,7 @@
     margin: 0px 0px 0px 0px !important;
     display: flex;
     flex-wrap: wrap;
+    padding-left: 12% !important; 
 }
 .LoadingImage{
     filter:'blur(8px)';
