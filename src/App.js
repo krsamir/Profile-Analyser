@@ -3,9 +3,6 @@ import "./App.css";
 import InputBox from './Components/InputBox'
 import 'tachyons';
 import RepoList from './Components/RepoList'
-
-import CardModal from './Components/CardModal'
-
 class App extends Component {
   constructor() {
     super();

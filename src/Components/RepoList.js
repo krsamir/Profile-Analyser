@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import CardModal from './CardModal'
 import { fetchData } from "../api/api";
 import styles from './RepoList.module.css'
+import LoadingImage from '../Images/Loading.jpeg'
 export default class RepoList extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,7 @@ export default class RepoList extends Component {
     render() {
         const { apiData } = this.state;
         if (apiData.length === 0)
-            return <h2>Loading ....</h2>
+        return <img className = {styles.LoadingImage}  src={LoadingImage} alt="Loading ..." />;
         
         const Repos = apiData.map((user,index) => {
             const api=apiData[index]
