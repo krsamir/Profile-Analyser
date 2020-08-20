@@ -3,6 +3,9 @@ import "./App.css";
 import InputBox from './Components/InputBox'
 import 'tachyons';
 import RepoList from './Components/RepoList'
+
+import CardModal from './Components/CardModal'
+
 class App extends Component {
   constructor() {
     super();
@@ -20,6 +23,7 @@ class App extends Component {
     // console.log(this.state.input)
     this.setState({isClicked:true})
     this.setState({user_input :this.state.input});
+    // this.setState({user_input :"krsamir"});
   }
   render() {
     const isClicked = this.state.isClicked;

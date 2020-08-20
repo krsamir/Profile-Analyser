@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Grid } from '@material-ui/core';
-import CardRepo from './CardRepo'
+// import CardRepo from './CardRepo'
+import CardModal from './CardModal'
 import { fetchData } from "../api/api";
+import styles from './RepoList.module.css'
 export default class RepoList extends Component {
     constructor(props) {
         super(props);
@@ -20,14 +21,14 @@ export default class RepoList extends Component {
         
         const Repos = apiData.map((user,index) => {
             const api=apiData[index]
-            return <CardRepo key = {index} api={api}/>
+            // return <CardRepo key = {index} api={api}/>
+            return <CardModal key = {index} api={api}/>
         })
         return (
-            <Grid>
+            <div className={styles.bigcard}>
                 {/* <h1>{this.props.input}</h1> */}
-                {console.log(apiData)}
-                <Grid>{Repos}</Grid>
-            </Grid>
+            {Repos}
+            </div>
         );
     }
 }

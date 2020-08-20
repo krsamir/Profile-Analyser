@@ -1,0 +1,6 @@
+.bigcard{
+    border: 0px 0px 0px 0px !important;
+    margin: 0px 0px 0px 0px !important;
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,13 @@
+.card{
+    min-width: 320px !important;
+    max-width: auto !important ;
+    min-height: 100px !important;
+    max-height: auto !important;
+}
+.modal{
+
+    min-width: 600px !important;
+    max-width: auto !important ;
+    min-height: 400px !important;
+    max-height: auto !important;
+}
