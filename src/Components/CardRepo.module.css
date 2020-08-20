@@ -1,0 +1,5 @@
+.card{
+    min-width: 400px !important;
+    min-height: 200px !important;
+    max-height: auto !important;
+}

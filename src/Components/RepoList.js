@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
-import RepoCard from './RepoCard';
+import CardRepo from './CardRepo'
 import { fetchData } from "../api/api";
 export default class RepoList extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ export default class RepoList extends Component {
         
         const Repos = apiData.map((user,index) => {
             const api=apiData[index]
-            return <RepoCard key = {index} api={api}/>
+            return <CardRepo key = {index} api={api}/>
         })
         return (
             <Grid>
