@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import CardRepo from './CardRepo'
+import {Grid} from '@material-ui/core'
 import CardModal from './CardModal'
 import { fetchData } from "../api/api";
 import styles from './RepoList.module.css'
@@ -17,9 +18,10 @@ export default class RepoList extends Component {
     }
     render() {
         const { apiData } = this.state;
-        if (apiData.length === 0)
+        if (!apiData[0])
         return <img className = {styles.LoadingImage}  src={LoadingImage} alt="Loading ..." />;
         
+        // console.log(apiData)
         const Repos = apiData.map((user,index) => {
             const api=apiData[index]
             // return <CardRepo key = {index} api={api}/>
